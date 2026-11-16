@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook Style Website</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f0f2f5;
+    color: #1c1e21;
+}
+
+/* HEADER */
+header {
+    background: white;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    box-shadow: 0 2px 8px #0002;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 35px;
+    font-weight: bold;
+    color: #1877f2;
+}
+
+.search {
+    background: #f0f2f5;
+    border-radius: 25px;
+    padding: 12px 20px;
+    border: none;
+    width: 250px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 22px;
+    color: #1877f2;
+}
+
+/* MAIN */
+.container {
+    max-width: 1000px;
+    margin: 25px auto;
+    padding: 15px;
+}
+
+/* PROFILE */
+.profile {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px #0001;
+}
+
+.cover {
+    height: 250px;
+    background:
+    linear-gradient(120deg, #1877f2, #071b55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.profile-info {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid white;
+    object-fit: cover;
+    margin-top: -55px;
+}
+
+.profile-info h2 {
+    font-size: 24px;
+}
+
+/* POST BOX */
+.post-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.post-box h3 {
+    margin-bottom: 15px;
+}
+
+.post-input {
+    background: #f0f2f5;
+    padding: 15px;
+    border-radius: 25px;
+    color: #65676b;
+}
+
+/* POST */
+.post {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px #0001;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.post-header img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-image {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+video {
+    width: 100%;
+    max-height: 450px;
+    border-radius: 10px;
+    margin-top: 15px;
+    background: black;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #ddd;
+    margin-top: 15px;
+    padding-top: 12px;
+}
+
+.actions button {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #606770;
+}
+
+.actions button:hover {
+    color: #1877f2;
+    background: #f0f2f5;
+    border-radius: 8px;
+}
+
+@media(max-width:600px) {
+    header {
+        padding: 0 12px;
+    }
+
+    .search {
+        width: 120px;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    .cover {
+        height: 160px;
+    }
+
+    .profile-info {
+        gap: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">f</div>
+
+    <input class="search"
+    type="search" placeholder="Search Facebook">
+
+    <nav>
+        <a href="#">⌂</a>
+        <a href="#">▶</a>
+        <a href="#">☰</a>
+        <a href="#">●</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <!-- PROFILE -->
+    <section class="profile">
+        <div class="cover">
+            <p>           WELCOME TO MY FACEBOOK BY SONY SUP</p>
+        
+
+</div>
+
+
+
+        <div class="profile-info">
+            <img class="profile-pic"
+            src="5.JPEG">
+
+            <div>
+                <h2>My Facebook Page</h2>
+                <p>Welcome to my social media world!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CREATE POST -->
+    <section class="post-box">
+        <h3>Create Post</h3>
+        <div class="post-input">
+            What's on your mind?
+        </div>
+    </section>
+
+    <!-- IMAGE POST -->
+    <section class="post">
+
+        <div class="post-header">
+            <img src="5.jpeg">
+            <div>
+                <b>My Facebook Page</b>
+                <p>Just now · 🌎</p>
+            </div>
+        </div>
+
+        <p> THE UNIVERSAL WORLD 🌿</p>
+
+        <img class="post-image"
+        src="1.PNG">
+
+        <div class="actions">
+            <button onclick="like(this)">👍 Like</button>
+            <button onclick="comment()">💬 Comment</button>
+            <button onclick="share()">↗ Share</button>
+        </div>
+    </section>
+
+    <!-- VIDEO POST -->
+    <section class="post">
+
+        <div class="post-header">
+            <img src="5.JPEG">
+            <div>
+                <b>My Facebook Page</b>
+                <p>Video Post · 🌎</p>
+            </div>
+        </div>
+
+        <p>My GAATHA  Video 🎬</p>
+
+        <video controls poster="9.png">
+            <source src="ml.mp4" type="video/mp4">
+            Your browser does not support video.
+        </video>
+
+        <div class="actions">
+            <button onclick="like(this)">👍 Like</button>
+            <button onclick="comment()">💬 Comment</button>
+            <button onclick="share()">↗ Share</button>
+        </div>
+    </section>
+
+</div>
+
+<script>
+function like(button) {
+    if (button.dataset.liked === "true") {
+        button.innerHTML = "👍 Like";
+        button.dataset.liked = "false";
+    } else {
+        button.innerHTML = "💙 Liked";
+        button.dataset.liked = "true";
+    }
+}
+
+function comment() {
+    let message = prompt("Write your comment:");
+    if (message) {
+        alert("Comment added: " + message);
+    }
+}
+
+function share() {
+    if (navigator.share) {
+        navigator.share({
+            title: "My Facebook Page",
+            text: "Check out this post!"
+        });
+    } else {
+        alert("Share this page using your browser.");
+    }
+}
+</script>
+
+</body>
+</html>

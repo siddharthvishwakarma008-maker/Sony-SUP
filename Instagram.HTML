@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram | Premium Experience</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ff2876;
+    --purple: #a02bdf;
+    --blue: #536dfe;
+    --white: #ffffff;
+    --muted: #b8b9ce;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    color: var(--white);
+    background: #090914;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    left: -100px;
+    background: #a02bdf;
+    filter: blur(160px);
+    opacity: .35;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    right: -150px;
+    bottom: -150px;
+    background: #ff2876;
+    filter: blur(160px);
+    opacity: .25;
+    pointer-events: none;
+}
+
+header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 8%;
+    border-bottom: 1px solid #ffffff12;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 1000;
+}
+
+.insta-logo {
+    width: 63px;
+    height: 43px;
+    border-radius: 13px;
+    background: linear-gradient(
+        45deg,
+        #feda75,
+        #fa7e1e,
+        #d62976,
+        #962fbf,
+        #4f5bd5
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 22px #d6297655;
+}
+
+.camera {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border: 2.5px solid white;
+    border-radius: 8px;
+}
+
+.camera::before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border: 2px solid white;
+    border-radius: 100%;
+    top: 5px;
+    left: 5px;
+}
+
+.camera::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    top: 3px;
+    right: 3px;
+}
+
+nav a {
+    color: #dedeee;
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #ff69a4;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 75px 30px;
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.tag {
+    display: inline-block;
+    padding: 9px 15px;
+    border: 1px solid #ffffff25;
+    border-radius: 30px;
+    color: #ff8fbd;
+    background: #ffffff08;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(40px, 5vw, 67px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+}
+
+.gradient-text {
+    background: linear-gradient(
+        90deg, #ff8b52, #ff3e91, #b77aff, #7c9dff
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.description {
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.9;
+    max-width: 510px;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px 0 30px;
+}
+
+.feature {
+    padding: 10px 13px;
+    background: #ffffff09;
+    border: 1px solid #ffffff16;
+    border-radius: 9px;
+    font-size: 12px;
+    color: #dedeee;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: linear-gradient(100deg, #ff6b57, #e1306c, #a02bdf);
+    box-shadow: 0 8px 30px #e1306c35;
+}
+
+.btn-secondary {
+    border: 1px solid #ffffff35;
+    background: #ffffff08;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 35px #e1306c45;
+}
+
+/* Video card */
+
+.video-card {
+    padding: 14px;
+    border: 1px solid #ffffff20;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #ffffff14, #ffffff04);
+    box-shadow: 0 25px 80px #0008;
+}
+
+.video-header {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 8px 7px 15px;
+}
+
+.mini-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #feda75, #d62976, #962fbf);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.video-header strong {
+    font-size: 14px;
+}
+
+.video-header small {
+    display: block;
+    margin-top: 4px;
+    color: #a5a6bd;
+    font-size: 11px;
+}
+
+.video-frame {
+    overflow: hidden;
+    border-radius: 30px;
+    background: #161625;
+    aspect-ratio: 9 / 12;
+}
+
+video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-caption {
+    padding: 19px 87px 7px;
+    color: #c5c5d8;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.video-caption strong {
+    color: white;
+}
+
+footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 25px 15px;
+    border-top: 1px solid #ffffff12;
+    color: #85859e;
+    font-size: 12px;
+}
+
+@media (max-width: 900px) {
+    header {
+        padding: 18px 6%;
+    }
+
+    nav a {
+        margin-left: 12px;
+        font-size: 12px;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 50px 22px;
+    }
+
+    .intro {
+        text-align: center;
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .features,
+    .actions {
+        justify-content: center;
+    }
+
+    .video-card {
+        width: 100%;
+        max-width: 440px;
+        margin: auto;
+    }
+}
+
+@media (max-width: 440px) {
+    nav a {
+        margin-left: 8px;
+        font-size: 98px;
+    }
+
+    .brand {
+        font-size: 19px;
+        gap: 8px;
+    }
+
+    .insta-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .camera {
+        transform: scale(.8);
+    }
+
+    h1 {
+        letter-spacing: -1px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="brand">
+        <div class="insta-logo">
+            <div class="camera"></div>
+        </div>
+        <span>Instagram</span>
+    </div>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#video">Video</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="intro" id="about">
+        <span class="tag">✦ CONNECT • CREATE • SHARE</span>
+
+        <h1>
+            Share your world.<br>
+            <span class="gradient-text">Your way.</span>
+        </h1>
+
+        <p class="description">
+            Instagram is a social media platform where people
+            share photos and videos, create Reels, discover
+            new interests, and connect with friends, creators,
+            and communities around the world.
+        </p>
+
+        <div class="features">
+            <span class="feature">📸 Photo Sharing</span>
+            <span class="feature">🎬 Reels & Videos</span>
+            <span class="feature">💬 Messaging</span>
+            <span class="feature">🌎 Explore</span>
+        </div>
+
+        <div class="actions">
+            <a class="btn btn-primary"
+               href="https://www.instagram.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Explore Instagram ↗
+            </a>
+
+            <a class="btn btn-secondary" href="#video">
+                ▶ Watch Video
+            </a>
+        </div>
+    </section>
+
+    <section class="video-card" id="video">
+
+        <div class="video-header">
+            <div class="mini-logo">◎</div>
+            <div>
+                <strong>Instagram Stories</strong>
+                <small>Discover • Create • Inspire</small>
+            </div>
+        </div>
+
+        <div class="video-frame">
+            <video controls playsinline poster="9.png">
+                <source src="ml.mp4"
+                        type="video/mp4" height="100px"width="100px">
+                
+            </video>
+        </div>
+
+        <p class="video-caption">
+            <strong>Discover something new ✨</strong><br>
+            Add your favorite video here and share your creativity
+            with a beautiful, modern design.
+        </p>
+
+    </section>
+
+</main>
+
+<footer>
+    Instagram-inspired landing page • 
+</footer>
+
+</body>
+</html>
+
